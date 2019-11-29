@@ -1,6 +1,7 @@
 package vista;
 
 import modelo.Logica;
+import modelo.Personaje;
 import processing.core.PApplet;
 
 public class Ejecutable extends PApplet {
@@ -19,6 +20,7 @@ public class Ejecutable extends PApplet {
 
 	public void setup() {
 		logica = new Logica(this);
+		logica.setArreglo(new Personaje[4]);
 
 	}
 

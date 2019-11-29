@@ -20,7 +20,7 @@ public class Logica {
 		this.imagenHomero = app.loadImage("homero_simpson.png");
 		this.imagenBart = app.loadImage("bart_simpson.png");
 		this.app = app;
-		this.arreglo = new Personaje[10];
+		//this.arreglo = new Personaje[10];
 		this.maximoArreglo = 0;
 
 	}
@@ -63,11 +63,21 @@ public class Logica {
 					&& app.mouseY >= personaje.getPosY() - 150 / 2 && app.mouseY <= personaje.getPosY() + 150 / 2) {
 				personaje.setAgregado(true);
 				
-				this.arreglo[this.maximoArreglo] = (personaje);
+				this.arreglo[this.maximoArreglo] = personaje;
 				this.maximoArreglo++;
 				System.out.println(this.arreglo[this.maximoArreglo]);
 			}
 
 		}
 	}
+
+	public Personaje[] getArreglo() {
+		return arreglo;
+	}
+
+	public void setArreglo(Personaje[] arreglo) {
+		this.arreglo = arreglo;
+	}
+	
+	
 }
