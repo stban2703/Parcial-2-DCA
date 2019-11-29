@@ -68,6 +68,8 @@ public class Logica {
 				personaje.setPosX(75);
 				personaje.setPosY(100 + (150 * i));
 
+				personaje.setImagen(imagenHomero);
+				
 				for (int j = 0; j < arreglo.length; j++) {
 					arreglo[maximoArreglo] = personaje;
 					System.out.println(arreglo[j]);
