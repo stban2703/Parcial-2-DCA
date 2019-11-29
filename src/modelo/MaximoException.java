@@ -1,8 +1,8 @@
 package modelo;
 
 public class MaximoException extends Exception{
-	public MaximoException(String message) {
-		super(message);
+	public MaximoException(String messageError) {
+		super(messageError);
 	}
 
 }

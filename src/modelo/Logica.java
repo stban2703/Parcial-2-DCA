@@ -78,7 +78,6 @@ public class Logica {
 
 				for (int j = 0; j < arreglo.length; j++) {
 					arreglo[maximoArreglo] = personaje;
-					// System.out.println(arreglo[j].getNumeroSuerte());
 				}
 
 				maximoArreglo++;
@@ -89,21 +88,9 @@ public class Logica {
 
 	}
 
-	/*
-	 * public void maximoArreglo() throws MaximoException { if (maximoArreglo >
-	 * arreglo.length) { throw new MaximoException("No se permiten más personajes");
-	 * } }
-	 *
+	public void ordenarEdad() {
 
-	public void ordenarNumero() {
-
-		if (app.mouseX < 200) {
-			for (int i = 0; i < arreglo.length - 1; i++) {
-				compararLaEdad.compare(arreglo[i], arreglo[i + 1]);
-				System.out.println(arreglo[i].getNumeroSuerte());
-			}
-		}
-	}*/
+	}
 
 	public Personaje[] getArreglo() {
 		return arreglo;
