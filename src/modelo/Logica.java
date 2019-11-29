@@ -69,7 +69,7 @@ public class Logica {
 				personaje.setPosY(100 + (150 * i));
 
 				personaje.setImagen(imagenHomero);
-				
+
 				for (int j = 0; j < arreglo.length; j++) {
 					arreglo[maximoArreglo] = personaje;
 					System.out.println(arreglo[j]);
@@ -81,6 +81,12 @@ public class Logica {
 
 		}
 
+	}
+
+	public void maximoArreglo() throws MaximoPersonajesException {
+		if (maximoArreglo > arreglo.length) {
+			throw new MaximoPersonajesException("No se permiten más personajes");
+		}
 	}
 
 	public Personaje[] getArreglo() {
