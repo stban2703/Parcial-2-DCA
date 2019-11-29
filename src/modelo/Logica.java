@@ -13,7 +13,9 @@ public class Logica {
 	private PImage imagenHomero;
 	private PImage imagenBart;
 	private int maximoArreglo;
+	private String mensaje;
 	private PApplet app;
+	private CompararPersonaje compararLaEdad;
 
 	public Logica(PApplet app) {
 		this.personajes = new ArrayList<Personaje>();
@@ -22,6 +24,7 @@ public class Logica {
 		this.app = app;
 		this.arreglo = new Personaje[4];
 		this.maximoArreglo = 0;
+		this.mensaje = "";
 
 	}
 
@@ -42,12 +45,15 @@ public class Logica {
 
 		}
 
+		app.fill(255, 0, 0);
+		app.text(mensaje, app.width / 2 + 100, app.height - 100);
+
 	}
 
 	public void crearPersonaje() {
 		int randomSuerte = (int) app.random(0, 10);
 		int randomEdad = (int) app.random(0, 30);
-		float randomPosX = app.random(350, 850);
+		float randomPosX = app.random(270, 850);
 		float randomPosY = app.random(250, 650);
 		if (app.mouseX >= (app.width / 2 + 100) - 50 && app.mouseX <= (app.width / 2 + 100) + 50
 				&& app.mouseY >= (app.height - 100) - 25 && app.mouseY <= (app.height - 100) + 25) {
@@ -56,7 +62,7 @@ public class Logica {
 
 	}
 
-	public void agregarArreglo() {
+	public void agregarArreglo() throws MaximoException {
 		for (int i = 0; i < personajes.size(); i++) {
 			Personaje personaje = this.personajes.get(i);
 			if (app.mouseX >= personaje.getPosX() - 50 && app.mouseX <= personaje.getPosX() + 50
@@ -72,9 +78,9 @@ public class Logica {
 
 				for (int j = 0; j < arreglo.length; j++) {
 					arreglo[maximoArreglo] = personaje;
-					System.out.println(arreglo[j]);
-
+					// System.out.println(arreglo[j].getNumeroSuerte());
 				}
+
 				maximoArreglo++;
 
 			}
@@ -83,11 +89,21 @@ public class Logica {
 
 	}
 
-	public void maximoArreglo() throws MaximoPersonajesException {
-		if (maximoArreglo > arreglo.length) {
-			throw new MaximoPersonajesException("No se permiten más personajes");
+	/*
+	 * public void maximoArreglo() throws MaximoException { if (maximoArreglo >
+	 * arreglo.length) { throw new MaximoException("No se permiten más personajes");
+	 * } }
+	 *
+
+	public void ordenarNumero() {
+
+		if (app.mouseX < 200) {
+			for (int i = 0; i < arreglo.length - 1; i++) {
+				compararLaEdad.compare(arreglo[i], arreglo[i + 1]);
+				System.out.println(arreglo[i].getNumeroSuerte());
+			}
 		}
-	}
+	}*/
 
 	public Personaje[] getArreglo() {
 		return arreglo;
@@ -95,6 +111,14 @@ public class Logica {
 
 	public void setArreglo(Personaje[] arreglo) {
 		this.arreglo = arreglo;
+	}
+
+	public String getMensaje() {
+		return mensaje;
+	}
+
+	public void setMensaje(String mensaje) {
+		this.mensaje = mensaje;
 	}
 
 }

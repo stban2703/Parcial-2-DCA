@@ -1,6 +1,7 @@
 package vista;
 
 import modelo.Logica;
+import modelo.MaximoException;
 import modelo.Personaje;
 import processing.core.PApplet;
 
@@ -32,7 +33,13 @@ public class Ejecutable extends PApplet {
 
 	public void mousePressed() {
 		logica.crearPersonaje();
-		logica.agregarArreglo();
+
+		try {
+			logica.agregarArreglo();
+		} catch (MaximoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 
